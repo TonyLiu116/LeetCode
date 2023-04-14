@@ -41,21 +41,23 @@ var minimumVisitedCells = function(grid) {
             return distance;
         let d = grid[x][y];
         for(let wx = x+1 ; wx <= x + d && wx < m ; wx++ ){
+            let tx = wx;
             wx = find_next(wx,y,0);
             if(wx > x + d || wx >= m ) break;
             if(vis[wx][y] == 1) continue;
             vis[wx][y] = 1;
-            next[wx][y][0] = x+d+1;
+            next[tx][y][0] = x+d+1;
             qu.push(wx);
             qu.push(y);
             qu.push(distance+1);
         }
         for(let wy = y+1 ; wy <= y+d && wy < n ; wy ++){
+            let ty = wy;
             wy = find_next(x,wy,1);
             if(wy > y + d || wy >= n ) break;
             if(vis[x][wy] == 1) continue;
             vis[x][wy] = 1;
-            next[x][wy][1] = y+d+1;
+            next[x][ty][1] = y+d+1;
             qu.push(x);
             qu.push(wy);
             qu.push(distance+1);
