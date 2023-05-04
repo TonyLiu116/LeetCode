@@ -4,7 +4,7 @@
  */
 var predictPartyVictory = function(senate) {
     let vis = [];
-    let st = 0;
+    let st = 0, en = 0;
     let n = senate.length;
     while(1){
         st %= n;
@@ -12,10 +12,11 @@ var predictPartyVictory = function(senate) {
             st ++ ;
             continue ;
         }
-        let en = st+1;
+        let tp = en ;
+        en ++;
         while(1){
             en %= n;
-            if(en === st){
+            if(en === tp){
                 if(senate[st] === 'R') return "Radiant";
                 else return "Dire";
             }
