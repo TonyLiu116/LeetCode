@@ -14,8 +14,7 @@ var FrequencyTracker = function() {
  * @return {void}
  */
 FrequencyTracker.prototype.add = function(number) {
-    if(this.count[number])
-        this.frequency[this.count[number]] --;
+    this.frequency[this.count[number]] --;
     this.count[number] ++;
     this.frequency[this.count[number]] ++;        
     return null;
